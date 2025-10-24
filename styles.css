@@ -1,1 +1,270 @@
+/* === Variables thème sombre === */
+@font-face {
+  font-family: 'Determination Mono';
+  src: url('fonts/DeterminationMono.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 
+:root {
+  --bg: #0a0a0a;
+  --text: #f0f0f0;
+  --muted: #aaa;
+  --line: #222;
+  --accent: #ffcc00;
+  --shadow: 0 8px 28px rgba(0,0,0,0.6);
+}
+
+/* === Reset / global === */
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body {
+  font-family: 'Determination Mono', monospace;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* === Containers / sections === */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 72px 0; }
+.section-title { font-weight: 700; font-size: 32px; margin: 0 0 24px; }
+
+/* === Header / Nav === */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  z-index: 20;
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: var(--text); font-weight: 700; text-decoration: none; }
+.lang-toggle {
+  appearance: none; border: 1px solid var(--line); background: var(--bg); color: var(--text);
+  padding: 8px 12px; border-radius: 999px; cursor: pointer;
+}
+.lang-toggle:hover { box-shadow: var(--shadow); }
+
+/* === Hero === */
+.hero-name {
+  font-family: 'Determination Mono', monospace;
+  font-size: 60px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0 0 12px 0;
+}
+.hero-title {
+  font-size: 38px;
+  margin: 0 0 8px;
+}
+.hero { padding: 64px 0 40px; font-family: 'Determination Mono', monospace; }
+.hero-subtitle { color: var(--muted); margin: 0 0 24px; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* === Buttons === */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  background: #ffffff;
+  color: #0a0a0a;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+  background: var(--accent);
+  color: #0a0a0a;
+}
+/* === Buttons étoiles / cœurs === */
+.button::before {
+  content: "* ";           /* étoile par défaut */
+  margin-right: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color .2s ease, content .2s ease;
+}
+
+.button:hover::before {
+  content: "❤ ";           /* devient cœur rouge */
+  color: red;
+}
+
+
+.button.ghost {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.button.ghost:hover {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+/* === About / Projects / Contact Grids === */
+.about-grid, .projects-grid, .contact-grid { display: grid; gap: 24px; }
+.about-grid { grid-template-columns: repeat(2, 1fr); }
+.projects-grid { display: flex; flex-direction: column; gap: 32px; } /* plus d'espace entre projets */
+.contact-grid { grid-template-columns: 1.2fr .8fr; }
+
+/* === Blocks encadrés === */
+.about-block, .project-card, .contact-block, .contact-form, .dialogue-undertale {
+  border: 7px solid #fff;
+  border-radius: 6px;
+  padding: 20px 25px;
+  background: #0b0b0b;
+  font-family: 'Determination Mono', monospace;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease;
+}
+/* Hover encadrés "Moi" et projets uniquement */
+.project-card:hover,
+.dialogue-undertale:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+/* === Dialogue Undertale === */
+.dialogue-undertale {
+  display: flex;
+  gap: 12px;
+}
+
+#me .dialogue-undertale .text {
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.dialogue-undertale .star {
+  font-size: 35px;
+  line-height: 1;
+  flex-shrink: 0;
+  font-weight: bold;
+  transition: color .2s ease, content .2s ease;
+}
+
+/* Hover texte & star seulement pour "Moi" */
+.dialogue-undertale:hover .text {
+  color: var(--accent);
+}
+
+.dialogue-undertale:hover .star {
+  content: "❤";       /* transforme l'étoile en cœur */
+  color: red;
+}
+
+
+/* === Focus list style (étoiles) === */
+.about-block ul.list {
+  list-style: none;
+  font-size: 22px;
+  padding: 0;
+  margin: 0;
+}
+.about-block ul.list li::before {
+  content: "* ";
+  color: #fff;
+  font-weight: bold;
+  font-size: 22px;
+  margin-right: 6px;
+  transition: color .2s ease, content .2s ease;
+}
+.about-block ul.list li:hover::before {
+  content: "❤ ";
+  color: red;
+}
+.about-block ul.list li:hover {
+  color: var(--accent);
+}
+
+/* === Skills list style === */
+.about-block .about-heading,
+#skillsHeading {
+  font-size: 28px; /* plus gros que les textes normaux */
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+#skillsTags {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px; /* vertical 16px, horizontal 24px */
+  font-size: 22px;
+  line-height: 1.2; /* réduit l’espace vertical des lignes */
+  color: #fff;
+}
+
+#skillsTags li::before {
+  content: "* ";
+  color: #fff;
+  margin-right: 6px;
+  font-size: 22px;
+  font-weight: bold;
+  transition: color .2s ease, content .2s ease;
+}
+#skillsTags li:hover::before {
+  content: "❤ ";
+  color: red;
+}
+#skillsTags li:hover {
+  color: var(--accent);
+}
+
+/* === Carousel / Projects === */
+.carousel { position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #111; }
+.carousel-track { display: flex; width: 100%; height: 100%; transition: transform .28s ease; }
+.carousel-slide { flex: 0 0 100%; display: grid; place-items: center; }
+.carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+
+/* === Project content === */
+.project-card {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+.project-card .carousel { flex: 0 0 25%; max-width: 25%; }
+.project-card .project-content { flex: 1; overflow-x: auto; white-space: pre-wrap; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.project-title { font-weight: 700; margin: 0; font-size: 28px; transition: color .2s ease, content .2s ease; }
+.project-title::before {
+  content: "* ";
+  color: #fff;
+  margin-right: 6px;
+  font-size: 28px;
+  font-weight: bold;
+}
+.project-card:hover .project-title::before {
+  content: "❤ ";
+  color: red;
+}
+.project-card:hover .project-title {
+  color: var(--accent);
+}
+.project-desc { color: var(--muted); margin: 0; font-size: 22px; }
+.project-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+.badge { padding: 4px 8px; border-radius: 999px; background: #222; font-size: 14px; }
+
+/* === Scroll reveal === */
+.fade-in { opacity: 0; transform: translateY(10px); transition: opacity .4s ease, transform .4s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* === Responsive === */
+@media (max-width: 980px) {
+  .projects-grid, .about-grid { grid-template-columns: repeat(2, 1fr); }
+  .project-card { flex-direction: column; }
+  .project-card .carousel, .project-card .project-content { flex: 1; max-width: 100%; }
+}
+@media (max-width: 640px) {
+  .projects-grid, .about-grid { grid-template-columns: 1fr; }
+  .hero-title { font-size: 28px; }
+  .hero-name { font-size: 48px; }
+  
+}

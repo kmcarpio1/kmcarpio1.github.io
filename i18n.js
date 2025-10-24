@@ -1,0 +1,47 @@
+export const messages = {
+  fr: {
+    brand: "Portfolio",
+    hero_title: "Cybersécurité & Recherche",
+    hero_subtitle: "Audit, détection d’intrusions, red teaming, et outillage défensif.",
+    cta_projects: "Voir les projets",
+    cta_contact: "Me contacter",
+    about_title: "À propos",
+    about_me_title: "Moi",
+    about_me_text: "Analyste en cybersécurité, passionné par la sécurité offensive et la défense, j’aime concevoir des outils simples qui apportent de la valeur aux équipes.",
+    about_focus_title: "Focus",
+    about_focus_1: "Red Team / Pentest",
+    about_focus_2: "Threat Hunting & DFIR",
+    about_focus_3: "Automatisation & outillage",
+    about_skills_title: "Compétences",
+    projects_title: "Projets",
+    contact_title: "Contact",
+    contact_text: "Disponible pour des opportunités et collaborations. N’hésitez pas à me joindre.",
+    form_name: "Nom",
+    form_email: "Email",
+    form_message: "Message",
+    form_send: "Envoyer"
+  },
+  en: {
+    brand: "Portfolio",
+    hero_title: "Cybersecurity & Research",
+    hero_subtitle: "Audit, intrusion detection, red teaming, and defensive tooling.",
+    cta_projects: "View projects",
+    cta_contact: "Contact me",
+    about_title: "About",
+    about_me_title: "Me",
+    about_me_text: "Cybersecurity analyst focused on both offensive security and defense; I enjoy building simple tools that deliver value to teams.",
+    about_focus_title: "Focus",
+    about_focus_1: "Red Team / Pentest",
+    about_focus_2: "Threat Hunting & DFIR",
+    about_focus_3: "Automation & tooling",
+    about_skills_title: "Skills",
+    projects_title: "Projects",
+    contact_title: "Contact",
+    contact_text: "Open to opportunities and collaboration. Feel free to reach out.",
+    form_name: "Name",
+    form_email: "Email",
+    form_message: "Message",
+    form_send: "Send"
+  }
+};
+

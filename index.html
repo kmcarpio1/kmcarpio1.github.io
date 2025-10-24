@@ -1,48 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mon Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio | Cybersécurité</title>
+  <meta name="description" content="Portfolio de projets en cybersécurité" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.cdnfonts.com/css/determination-mono" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script type="importmap">
+  {
+    "imports": {
+      "i18n": "./i18n.js"
+    }
+  }
+  </script>
 </head>
 <body>
-
-  <header>
-    <h1>Salut, moi c’est [Ton prénom]</h1>
-    <p>Étudiant en cybersécurité et développement</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true">▢</span>
+        <span class="brand-text" data-i18n="brand">Portfolio</span>
+      </a>
+      <nav class="nav">
+        <button class="lang-toggle" id="langToggle" aria-label="Changer la langue">
+          <span id="langLabel">FR</span>
+        </button>
+      </nav>
+    </div>
   </header>
 
-  <nav>
-    <a href="#about">À propos</a>
-    <a href="#projects">Projets</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <div class="container hero-inner">
+        <h1 class="hero-name">MORENO CARPIO Kenzo</h1> <!-- ton nom/prénom -->
+        <h2 class="hero-title" data-i18n="hero_title">Cybersécurité & Recherche</h2>
+        <p class="hero-subtitle" data-i18n="hero_subtitle">
+          Audit, détection d'intrusions, red teaming, et outillage défensif.
+        </p>
+        <div class="hero-cta">
+          <a href="#me" class="button">Moi</a>
+          <a href="#about" class="button">À propos</a>
+          <a href="#projects" class="button" data-i18n="cta_projects">Voir les projets</a>
+          <a href="#contact" class="button ghost" data-i18n="cta_contact">Me contacter</a>
+        </div>
+      </div>
+    </section>
 
-  <section id="about">
-    <h2>À propos</h2>
-    <p>Je suis passionné par la cybersécurité, le développement et les technologies cloud.</p>
-  </section>
 
-  <section id="projects">
-    <h2>Projets</h2>
-    <ul>
-      <li>🔐 Projet CTF XSS – création d’un site vulnérable pour apprentissage</li>
-      <li>☁️ Pentest AWS – documentation sur les configurations IAM</li>
-      <li>🧠 Attaques adverses sur modèles de machine learning</li>
-    </ul>
-  </section>
+    <!-- Section Moi (Dialogue Undertale) -->
+    <section class="about section" id="me">
+      <div class="container">
+        <h2 class="section-title" data-i18n="about_me_title">Moi</h2>
+          <div class="dialogue-undertale">
+            <span class="star">*</span>
+            <span class="text" data-i18n="about_me_text"></span>
+          </div>
+        </div>
+    </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p><a href="mailto:tonemail@example.com">tonemail@example.com</a></p>
-    <p><a href="https://github.com/tonpseudo">Mon GitHub</a></p>
-    <p><a href="https://www.linkedin.com/in/tonlinkedin">LinkedIn</a></p>
-  </section>
+    <!-- Section À propos -->
+    <section class="about section" id="about">
+      <div class="container">
+        <h2 class="section-title" data-i18n="about_title">À propos</h2>
+        <div class="about-grid">
+          <div class="about-block">
+            <h3 class="about-heading" data-i18n="about_focus_title">Focus</h3>
+            <ul class="list">
+              <li data-i18n="about_focus_1">Red Team / Pentest</li>
+              <li data-i18n="about_focus_2">Threat Hunting & DFIR</li>
+              <li data-i18n="about_focus_3">Automatisation & outillage</li>
+            </ul>
+          </div>            
+          <div class="about-block">
+            <h3 class="about-heading" data-i18n="about_skills_title">Compétences</h3>
+            <ul class="tags" id="skillsTags">
+              <!-- généré dynamiquement par JS -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <footer>
-    <p>© 2025 [Ton prénom] — Portfolio</p>
+    <!-- Section Projets -->
+    <section class="projects section" id="projects">
+      <div class="container">
+        <h2 class="section-title" data-i18n="projects_title">Projets</h2>
+        <div class="projects-grid" id="projectsGrid" aria-live="polite">
+          <!-- généré dynamiquement par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="contact section" id="contact">
+      <div class="container">
+        <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+        <div class="contact-grid">
+          <div class="contact-block">
+            <p data-i18n="contact_text">
+              Disponible pour des opportunités et collaborations. N'hésitez pas à me joindre.
+            </p>
+            <ul class="contact-list">
+              <li><a id="emailLink" href="mailto:you@example.com">you@example.com</a></li>
+              <li><a id="linkedinLink" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
+              <li><a id="githubLink" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
+          </div>
+          <form class="contact-form" action="https://formspree.io/f/yourform" method="POST">
+            <label>
+              <span data-i18n="form_name">Nom</span>
+              <input type="text" name="name" required />
+            </label>
+            <label>
+              <span data-i18n="form_email">Email</span>
+              <input type="email" name="email" required />
+            </label>
+            <label>
+              <span data-i18n="form_message">Message</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+            <button class="button" type="submit" data-i18n="form_send">Envoyer</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> <span data-i18n="brand">Portfolio</span></p>
+    </div>
   </footer>
 
+  <script type="module" src="main.js"></script>
 </body>
 </html>
