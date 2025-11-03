@@ -25,6 +25,11 @@ body {
   line-height: 1.6;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 /* === Containers / sections === */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 .section { padding: 72px 0; }
@@ -112,6 +117,17 @@ body {
 .about-grid { grid-template-columns: repeat(2, 1fr); }
 .projects-grid { display: flex; flex-direction: column; gap: 32px; } /* plus d'espace entre projets */
 .contact-grid { grid-template-columns: 1.2fr .8fr; }
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.project-link:hover .project-card {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
 
 /* === Blocks encadrés === */
 .about-block, .project-card, .contact-block, .contact-form, .dialogue-undertale {
@@ -189,6 +205,7 @@ body {
   font-size: 28px; /* plus gros que les textes normaux */
   font-weight: 700;
   margin-bottom: 16px;
+  margin-top: 0;  
 }
 
 #skillsTags {
@@ -197,7 +214,7 @@ body {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 24px; /* vertical 16px, horizontal 24px */
+  gap: 5px 24px; /* vertical 16px, horizontal 24px */
   font-size: 22px;
   line-height: 1.2; /* réduit l’espace vertical des lignes */
   color: #fff;
@@ -224,6 +241,15 @@ body {
 .carousel-track { display: flex; width: 100%; height: 100%; transition: transform .28s ease; }
 .carousel-slide { flex: 0 0 100%; display: grid; place-items: center; }
 .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+.carousel-slide iframe {
+  width: 90%;          /* légèrement plus large que le conteneur */
+  height: 100%;         /* prend toute la hauteur du slide */
+  object-fit: cover;    /* remplit le conteneur, crop symétrique si nécessaire */
+  border: none;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;       /* centre horizontalement */
+}
 
 /* === Project content === */
 .project-card {
@@ -232,7 +258,30 @@ body {
   width: 100%;
 }
 .project-card .carousel { flex: 0 0 25%; max-width: 25%; }
-.project-card .project-content { flex: 1; overflow-x: auto; white-space: pre-wrap; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+.project-card .project-content {
+  flex: 1;
+  overflow-y: auto;        /* scroll vertical si trop de texte */
+  white-space: pre-wrap;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 250px;
+
+  max-height: 250px;       /* hauteur fixe pour tous les blocs */
+}
+
+/* Optional: style discret pour la scrollbar */
+.project-card .project-content::-webkit-scrollbar {
+  width: 6px;
+}
+.project-card .project-content::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 3px;
+}
+.project-card .project-content::-webkit-scrollbar-track {
+  background: #111;
+}
 .project-title { font-weight: 700; margin: 0; font-size: 28px; transition: color .2s ease, content .2s ease; }
 .project-title::before {
   content: "* ";
@@ -267,4 +316,127 @@ body {
   .hero-title { font-size: 28px; }
   .hero-name { font-size: 48px; }
   
+}
+
+
+/* === Layout avec blocs latéraux adaptatifs === */
+.main-layout {
+  display: flex;
+  justify-content: flex-start;  /* ne centre plus tout, on colle à gauche */
+  align-items: flex-start;
+  gap: 16px;                    /* petit écart entre centre et right */
+  width: 100%;
+  max-width: 1100px;            /* limite la largeur du centre + right si nécessaire */
+  margin: 0 auto;               /* centre le layout global horizontalement */
+}
+
+/* Bloc central */
+.center-block {
+  flex: 0 0 1100px;             /* largeur fixe pour le centre */
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.right-block {
+  flex: 0 0 auto;
+  min-width: 180px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  /* Décalage pour s'aligner avec le début du contenu central */
+  padding-top: calc(32px * 1.6 + 24px + 72px); /* font-size * line-height + margin-bottom */
+}
+
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .right-block {
+    flex: 1 1 180px; /* s’adapte aux écrans moyens */
+    margin-top: 0px; 
+  }
+}
+
+@media (max-width: 980px) {
+  .main-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .right-block {
+    width: 100%;
+    order: 1; 
+  }
+  .center-block {
+    max-width: 100%;
+  }
+}
+
+
+/* === Contact section === */
+.contact-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.contact-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #0b0b0b;
+  border: 7px solid #fff;
+  border-radius: 16px;
+  padding: 24px 40px;
+  font-size: 24px;
+  font-family: 'Determination Mono', monospace;
+  font-weight: 700;
+  color: #fff;
+  transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, color .2s ease;
+  box-shadow: none;
+}
+
+.contact-btn i {
+  font-size: 36px;
+  margin-bottom: 8px;
+  transition: color .2s ease;
+}
+
+/* Hover animation comme le reste du site */
+.contact-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Couleurs spécifiques par icône au hover */
+.contact-btn:hover i.fa-envelope {
+  color: #e63946; /* accent */
+}
+.contact-btn:hover i.fa-linkedin {
+  color: #0077b5;
+}
+.contact-btn:hover i.fa-github {
+  color: #999;
+}
+
+
+/* Mobile adaptation */
+@media (max-width: 640px) {
+  .contact-btn {
+    width: 100%;
+    font-size: 22px;
+    padding: 18px;
+  }
+  .contact-btn i {
+    font-size: 32px;
+  }
 }

@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.cdnfonts.com/css/determination-mono" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <script type="importmap">
   {
     "imports": {
@@ -32,57 +34,61 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero" id="hero">
-      <div class="container hero-inner">
-        <h1 class="hero-name">MORENO CARPIO Kenzo</h1> <!-- ton nom/prénom -->
-        <h2 class="hero-title" data-i18n="hero_title">Cybersécurité & Recherche</h2>
-        <p class="hero-subtitle" data-i18n="hero_subtitle">
-          Audit, détection d'intrusions, red teaming, et outillage défensif.
-        </p>
-        <div class="hero-cta">
-          <a href="#me" class="button">Moi</a>
-          <a href="#about" class="button">À propos</a>
-          <a href="#projects" class="button" data-i18n="cta_projects">Voir les projets</a>
-          <a href="#contact" class="button ghost" data-i18n="cta_contact">Me contacter</a>
-        </div>
+    
+   <!-- Hero -->
+<section class="hero" id="hero">
+  <div class="container hero-inner" style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+    
+    <!-- Contenu gauche -->
+    <div class="hero-content" style="flex: 1;">
+      <h1 class="hero-name">Kenzo MORENO CARPIO</h1>
+      <h2 class="hero-title" data-i18n="hero_title"></h2>
+      <p class="hero-subtitle" data-i18n="hero_subtitle">      </p>
+      <div class="hero-cta">
+        <a href="#about-me" class="button" data-i18n="about_me_title">À propos</a>
+        <a href="#projects" class="button" data-i18n="cta_projects">Voir les projets</a>
+        <a href="#contact" class="button ghost" data-i18n="cta_contact">Me contacter</a>
       </div>
-    </section>
+    </div>
 
+    <!-- Bouton droite -->
+    <div class="hero-cv">
+      <a href="CV_Kenzo_Moreno_Carpio.pdf" download class="button ghost" style="padding: 20px 30px; font-size: 24px;"data-i18n="CV"></a>
+    </div>
+    
+  </div>
+</section>
 
-    <!-- Section Moi (Dialogue Undertale) -->
-    <section class="about section" id="me">
-      <div class="container">
-        <h2 class="section-title" data-i18n="about_me_title">Moi</h2>
-          <div class="dialogue-undertale">
-            <span class="star">*</span>
-            <span class="text" data-i18n="about_me_text"></span>
-          </div>
+    <div class="main-layout">
+     
+    
+      <main class="center-block">
+          
+          <!-- Section À propos -->
+          <section class="about section" id="me">
+            <div class="container">
+              <h2 class="section-title" data-i18n="about_me_title">À propos</h2>
+                <div class="dialogue-undertale">
+                  <span class="star">*</span>
+                  <span class="text" data-i18n="about_me_text"></span>
+                </div>
+            </div>
+          </section>
+
+    
+        
+      </main>
+    
+      <aside class="right-block">
+        <div class="about-block">
+          <h3 class="about-heading" data-i18n="about_skills_title">Compétences</h3>
+          <ul class="tags" id="skillsTags">
+            <!-- généré dynamiquement par JS -->
+          </ul>
         </div>
-    </section>
-
-    <!-- Section À propos -->
-    <section class="about section" id="about">
-      <div class="container">
-        <h2 class="section-title" data-i18n="about_title">À propos</h2>
-        <div class="about-grid">
-          <div class="about-block">
-            <h3 class="about-heading" data-i18n="about_focus_title">Focus</h3>
-            <ul class="list">
-              <li data-i18n="about_focus_1">Red Team / Pentest</li>
-              <li data-i18n="about_focus_2">Threat Hunting & DFIR</li>
-              <li data-i18n="about_focus_3">Automatisation & outillage</li>
-            </ul>
-          </div>            
-          <div class="about-block">
-            <h3 class="about-heading" data-i18n="about_skills_title">Compétences</h3>
-            <ul class="tags" id="skillsTags">
-              <!-- généré dynamiquement par JS -->
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+      </aside>
+    </div>
+    
 
     <!-- Section Projets -->
     <section class="projects section" id="projects">
@@ -94,40 +100,33 @@
       </div>
     </section>
 
-    <!-- Section Contact -->
-    <section class="contact section" id="contact">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contact_title">Contact</h2>
-        <div class="contact-grid">
-          <div class="contact-block">
-            <p data-i18n="contact_text">
-              Disponible pour des opportunités et collaborations. N'hésitez pas à me joindre.
-            </p>
-            <ul class="contact-list">
-              <li><a id="emailLink" href="mailto:you@example.com">you@example.com</a></li>
-              <li><a id="linkedinLink" href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">LinkedIn</a></li>
-              <li><a id="githubLink" href="https://github.com/yourhandle" target="_blank" rel="noopener">GitHub</a></li>
-            </ul>
-          </div>
-          <form class="contact-form" action="https://formspree.io/f/yourform" method="POST">
-            <label>
-              <span data-i18n="form_name">Nom</span>
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              <span data-i18n="form_email">Email</span>
-              <input type="email" name="email" required />
-            </label>
-            <label>
-              <span data-i18n="form_message">Message</span>
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-            <button class="button" type="submit" data-i18n="form_send">Envoyer</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
+<!-- Section Contact -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <h2 class="section-title" data-i18n="contact_title">Contact</h2>
+    <div class="contact-buttons">
+      <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=KenzoOct12@gmail.com" 
+  target="_blank" 
+  rel="noopener noreferrer" 
+  class="contact-btn" 
+  title="Email"
+>
+  <i class="fa-solid fa-envelope"></i>
+  <span>Mail</span>
+</a>
+      <a href="https://www.linkedin.com/in/kmcarpio" target="_blank" rel="noopener" class="contact-btn" title="LinkedIn">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://github.com/kmcarpio1" target="_blank" rel="noopener" class="contact-btn" title="GitHub">
+        <i class="fa-brands fa-github"></i>
+        <span>GitHub</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
   <footer class="site-footer">
     <div class="container footer-inner">
