@@ -324,7 +324,7 @@ html {
   display: flex;
   justify-content: flex-start;  /* ne centre plus tout, on colle à gauche */
   align-items: flex-start;
-  gap: 16px;                    /* petit écart entre centre et right */
+  gap: 10px;                    /* petit écart entre centre et right */
   width: 100%;
   max-width: 1100px;            /* limite la largeur du centre + right si nécessaire */
   margin: 0 auto;               /* centre le layout global horizontalement */
@@ -345,7 +345,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 15px;
-
+  
   /* Décalage pour s'aligner avec le début du contenu central */
   padding-top: calc(32px * 1.6 + 24px + 72px); /* font-size * line-height + margin-bottom */
 }
